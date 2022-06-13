@@ -9,8 +9,10 @@ print("*************************************************************************
 import os
 import socket
 from threading import Timer
-
+os.system("apt-get install screenfetch")
 os.system("apt-get install lolcat")
+os.system("clear")
+os.system("screenfetch")
 os.system("figlet -f mono9 zoala python|lolcat")
 print("***********************************************************************************************************")
 
@@ -18,8 +20,20 @@ def timer():
     t = Timer(10, timer)
     t.start()
 
+import os
+os.system("pip install pygame")
+os.system("python3 -m pip install pygame")
+os.system("clear")
+os.system("cls")
+
+from pygame import mixer
+mixer.init()
+mixer.music.load("music.mp3")
+mixer.music.set_volume(0.9)
+mixer.music.play()
 
 user = str(input("enter your name:"))
+os.system("clear")
 print("welcome", user)
 print("___________________________________________________________________")
 print("my channal link (https://www.youtube.com/channel/UCJdel5A-tAi28hEioln0fyA)")
@@ -41,6 +55,8 @@ print("14- decrypt monoalphabetic cipher :")
 print("15- geolocation ip :")
 print("16- sniffing ports :")
 print("17 - extract information from photo :")
+print("18- extract wifi info conection :")
+print("____________________________")
 print("____________________________")
 print("|000- small virus python :|")
 print("___________________________")
@@ -50,6 +66,8 @@ from scapy.all import *
 
 def menu():
     choise = str(input("enter your choise:"))
+    import os
+    os.system("clear")
     if choise == "1":
         import socket
         website = str(input("enter your website :"))
@@ -158,7 +176,7 @@ def menu():
             arp_packet = scapy.ARP(pdst=ip)
             broadcast_packet = scapy.Ether(dst="ff:ff:ff:ff:ff:ff")
             arp_broadcast_packet = broadcast_packet / arp_packet
-            answered_list = scapy.srp(arp_broascast_packet, timeout=1, verbose=False)[0]
+            answered_list = scapy.arp(arp_broascast_packet, timeout=1, verbose=False)[0]
             return answered_list[0][1].hwsrc
 
         def spoof(target_ip, spoof_ip):
@@ -418,6 +436,25 @@ def menu():
             value = exifdata.get(tagid)
             print("{} : {}".format(tagname, value))
         x = input("enter to exit :")
+    elif choise == "18":
+        import os
+        os.system("python3 -m pip install wifi")
+        from wifi import Cell
+        net = Cell.all('wlan0')
+        print(net)
+        for i in net :
+            print(i.channel)
+            print(i.address)
+            print(i.frequency)
+            print(i.mode)
+            print(i.ssid)
+            print(i.signal)
+            print(i.quality)
+            print(i.bitrates)
+            print(i.encrypted)
+            print(i.encryption_type)
+            print("_________________________________________________")
+            os.system("figlet wifi-zoala")
 
 
 menu()
